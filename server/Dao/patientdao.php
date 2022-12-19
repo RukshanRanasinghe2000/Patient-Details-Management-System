@@ -19,6 +19,7 @@ class PatientDao
 
     public static function setdata($row)
     {
+
         $patient = new Patient();
         $patient->setId($row['id']);
         $patient->setName($row['name']);
@@ -31,7 +32,7 @@ class PatientDao
 
     public static function getById($id)
     {
-        $query = "SELECT * FROM patient WHERE id = '$id';";
+        $query = "SELECT * FROM patient WHERE id = ".$id;
         $result = CommonDao::getResults($query);
         $row = $result->fetch_assoc();
         return PatientDao::setdata($row);

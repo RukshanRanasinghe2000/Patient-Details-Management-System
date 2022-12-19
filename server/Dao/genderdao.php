@@ -6,7 +6,7 @@ class GenderDao
 {
     public static function getById($id)
     {
-        $query = "SELECT * FROM gender WHERE id = '$id';";
+        $query = "SELECT * FROM gender WHERE id = ".$id;
         $result = CommonDao::getResults($query);
         $row = $result->fetch_assoc();
         return GenderDao::setData($row);
